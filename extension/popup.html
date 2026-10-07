@@ -1,0 +1,14 @@
+<!doctype html>
+<meta charset="utf-8">
+<style>
+  body { font: 13px/1.45 system-ui, sans-serif; width: 300px; margin: 12px; color: #222; }
+  h1 { font-size: 14px; margin: 0 0 6px; }
+  p { margin: 6px 0; }
+  #status { font-weight: 600; }
+  .ok { color: #0a7d3e; } .bad { color: #c0182b; }
+</style>
+<h1>Jev Slop Detector</h1>
+<p id="status">Checking relay…</p>
+<p>Each label is a <b>classification probability</b> from TypeSafe's Jev model answering one yes/no question: does the post substitute unsupported hype for concrete substance? It is not verified truth and not an AI-writing detector.</p>
+<p><b>Slop</b> = probability of yes ≥ 70%. 50–70% is too close to call, so no label is shown. <b>Not slop</b> = below 50%, shown as the probability of no.</p>
+<script src="popup.js"></script>

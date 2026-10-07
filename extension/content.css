@@ -1,0 +1,79 @@
+/* Jev Slop Detector overlay styles. Nothing here hides or reflows X's own content:
+ * both the label and the stamp are zero-height overlays. */
+.jev-wrap {
+  position: absolute; /* overlay only: adds no height, so X's layout never shifts */
+  z-index: 1000;
+  pointer-events: none; /* never block clicks on the post */
+  --jev-red: 200, 32, 48;
+  --jev-green: 10, 125, 62;
+  --jev-amber: 176, 108, 0;
+  --jev-gray: 110, 118, 125;
+}
+
+.jev-badge {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  white-space: nowrap;
+  pointer-events: auto; /* so the tooltip works */
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 10px;
+  font: 700 20px/1 system-ui, -apple-system, "Segoe UI", sans-serif;
+  letter-spacing: 0.01em;
+  cursor: help;
+  --c: var(--jev-gray);
+  color: rgb(var(--c));
+  z-index: 2; /* above the stamp */
+  background: linear-gradient(rgba(var(--c), 0.12), rgba(var(--c), 0.12)), #fff; /* solid, so it reads over media */
+  border: 1px solid rgba(var(--c), 0.35);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+}
+.jev-dot { width: 12px; height: 12px; border-radius: 50%; background: rgb(var(--c)); display: inline-block; }
+.jev-sep { font-weight: 400; opacity: 0.45; }
+.jev-pct { font-variant-numeric: tabular-nums; }
+.jev-slop { --c: var(--jev-red); }
+.jev-not_slop { --c: var(--jev-green); }
+.jev-error { --c: var(--jev-gray); }
+html[data-jev-theme="dark"] .jev-wrap { --jev-red: 255, 92, 104; --jev-green: 72, 205, 128; --jev-amber: 240, 170, 50; --jev-gray: 150, 158, 165; }
+
+/* The stamp: tilted, double-bordered, slightly worn red ink over the post text. */
+.jev-stamp {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  z-index: 1;
+  pointer-events: none;
+  transform: translateX(-50%) rotate(-9deg);
+  padding: 4px 44px 0;
+  font: 900 160px/1.05 Impact, "Arial Narrow Bold", "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: 0.04em;
+  color: rgba(var(--jev-red), 0.82);
+  border: 12px solid rgba(var(--jev-red), 0.82);
+  border-radius: 14px;
+  box-shadow: inset 0 0 0 7px transparent, inset 0 0 0 12px rgba(var(--jev-red), 0.82);
+  background: rgba(var(--jev-red), 0.03);
+  mix-blend-mode: normal;
+  -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='4'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -9 6.2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='4'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -9 6.2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  -webkit-mask-size: 220px 120px;
+  mask-size: 220px 120px;
+  animation: jev-stamp-in 340ms cubic-bezier(0.2, 0.9, 0.25, 1.2) both;
+}
+.jev-stamp.jev-no-anim { animation: none; }
+
+@keyframes jev-stamp-in {
+  0%   { opacity: 0; transform: translateX(-50%) rotate(-22deg) scale(2.1); }
+  55%  { opacity: 1; transform: translateX(-50%) rotate(-7deg) scale(0.94); }
+  100% { opacity: 1; transform: translateX(-50%) rotate(-9deg) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jev-stamp { animation: none; }
+}
+
+html[data-jev-theme="dark"] .jev-badge { background: linear-gradient(rgba(var(--c), 0.16), rgba(var(--c), 0.16)), #15202b; }
