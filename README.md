@@ -12,7 +12,7 @@ A Chrome extension inspired by [Robin Bilgil's real-time slop detector](https://
 | `relay/` | The local relay that holds the TypeSafe key. |
 | `test/` | Unit tests and a labeled CSS fixture. |
 | `docs/screenshots/` | Screenshots from the real X feed. |
-| `class-material/` | Slides, article and talk script from the talk this demo was built for. See its [README](class-material/README.md). |
+| `class-material/` | The class page (`jev-class-material.html`) with its Jev example and comparison scripts. See its [README](class-material/README.md). |
 | `recording/` | Scripts that record a browser tab as timestamped frames and encode them to MP4, plus why browser recording is hard and a proposal. See its [README](recording/README.md). |
 
 ## What the percentage means

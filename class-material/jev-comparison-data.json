@@ -1,0 +1,16 @@
+{
+  "model": "jev-1.13.0",
+  "repeats_per_condition": 3,
+  "total_requests": 72,
+  "labels": ["Concrete report", "Ordinary announcement", "Exaggerated promise", "Generic launch copy", "Opinion", "Bounded benchmark claim"],
+  "detailed": {
+    "without_criteria": [[0.05,0.05,0.05],[0.11,0.10,0.10],[0.95,0.95,0.96],[0.86,0.87,0.86],[0.12,0.12,0.13],[0.15,0.15,0.16]],
+    "with_criteria": [[0.03,0.03,0.03],[0.06,0.05,0.06],[0.97,0.97,0.97],[0.88,0.88,0.89],[0.09,0.09,0.09],[0.10,0.10,0.10]]
+  },
+  "simple": {
+    "instructions": "Is this post slop?",
+    "without_criteria": [[0.20,0.20,0.19],[0.28,0.30,0.28],[0.95,0.95,0.95],[0.73,0.74,0.73],[0.30,0.31,0.32],[0.37,0.35,0.37]],
+    "with_criteria": [[0.05,0.05,0.05],[0.07,0.07,0.06],[0.98,0.98,0.98],[0.91,0.90,0.90],[0.13,0.15,0.14],[0.13,0.14,0.13]]
+  },
+  "limitations": "Descriptive pilot with selected texts; no accuracy labels, confidence intervals, independence check or caching assessment."
+}
